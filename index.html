@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+    <main id="loginPanels" class="login">
+        <!-- Start Login Panels -->
+        <div class="panel">
+            <div class="login_form  w-50 mx-auto">
+                <!-- Start Container -->
+                <div class="container vh-100 d-flex justify-content-center flex-column w-75">
+                    <!-- Start Login Panel -->
+                    <div class="forms alert-show login_panel bg-glass p-5 rounded">
+                        <h1 class="">Login</h1>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="LUemail" placeholder="name@example.com">
+                            <label for="LUemail" class="text-dark">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="LUpassword" placeholder="Password">
+                            <label for="LUpassword" class="text-dark">Password</label>
+                        </div>
+
+                        <span id="goToRegister" class="clickable">Click here to create account</span>
+                        <button id="loginInbtn" class="btn mt-2 p-2 w-100 fs-4 d-flex align-items-center justify-content-center gap-2"> Login </button>
+                    </div>
+                    <!-- End Login Panel -->
+
+                    <!-- Start Register Panel -->
+                    <div class="forms alert-show register_panel d-none bg-glass p-5 rounded">
+                        <h1 class="">Register</h1>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="RUemail" placeholder="name@example.com">
+                            <label for="RUemail" class="text-dark">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="RUname" placeholder="Your Name">
+                            <label for="RUname" class="text-dark">Your Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="RUpassword" placeholder="Password">
+                            <label for="RUpassword" class="text-dark">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="RUrepassword" placeholder="Re-enter Password">
+                            <label for="RUrepassword" class="text-dark">Re-enter Password</label>
+                        </div>
+                        <div class="alert alert-danger d-none" role="alert" id="regerrorMessage">
+                            <span id="regerrorMessageText"></span>
+                        </div>
+                        <div class="alert alert-success d-none" role="alert" id="regsuccessMsg">
+                            <span id="regsuccessMsgTxt"></span>
+                        </div>
+                        <span id="backToLogin" class="clickable">Have Account? Click to login</span>
+                        <button id="regesterAccount" class="btn mt-2 p-2 w-100 fs-4">Register</button>
+                    </div>
+                    <!-- End Register Panel -->
+                </div>
+                <!-- End Container -->
+                     <!-- Start Noti -->
+                <div class="position-absolute  w-25 bottom-0 start-0 end-0  m-auto">
+                    <div class="alert alert-success d-none d-flex align-items-center justify-content-between" role="alert" id="successMsg">
+                        <span id="successMsgTxt">test</span><i class="fa-solid fa-circle-check fa-beat-fade fa-xl" style="color: #63E6BE;"></i>
+                    </div>
+                    <div class="alert alert-danger d-none d-flex align-items-center justify-content-between " role="alert" id="errorMessage">
+                        <span id="errorMessageText">test</span><i class="fa-solid fa-circle-exclamation fa-beat-fade fa-xl text-danger"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Login Panels -->
+    </main>
+    <!-- Start Home -->
+    <div id="home" class="home d-none overflow-hidden">
+          <main>
+              <div class="d-flex text-center align-items-center justify-content-center vh-100 bg-glass">
+                <div class="welcome-box bg-glass w-50 p-5 rounded alert-show ">
+                    <h1>Welcome <span id="DisplayName"></span> In WebSite</h1>
+                    <button id="logoutBtn" class="btn mt-2 p-2 w-100 fs-4" type="button">Log Out</button>
+                </div>
+              </div>
+          </main>
+    </div>
+    <!-- End Home -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+:root{
+    --main-color:#B197FC;
+    --dark-bg:#15151b;
+    --second-color:#9e4afb;
+}
+.second-color-bg{
+    background-color:var(--second-color);
+}
+body{
+        color: var(--main-color);
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+}   
+h1{
+    background: linear-gradient(90deg, var(--main-color) 5%, #ffffff 30%, #ffffff 62%, #ffffff 96%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+}
+::selection{
+    background-color: var(--main-color);
+    color: white;
+}
+body main {
+        background-color: var(--dark-bg);
+        background-image: url(backall.svg);
+}
+.home{
+    height: 100vh;
+    background-color: var(--dark-bg);
+    background-image: url(backall.svg);
+}
+.form-control:focus{
+    box-shadow: 0 0 0 .25rem var(--main-color);
+}
+.btn{
+    background: linear-gradient(90deg, var(--second-color) 5%, #8949d3 30%, #ae6bfc 62%, #c795ff 96%);
+    color: white;
+    transition: .4s;
+    box-shadow: 0 0 0 .25rem transparent;
+    outline: none;
+}
+.btn:hover{
+    box-shadow: 0 0 0 .25rem #cdaeffa2;
+    background: transparent;
+    color: var(--main-color);
+    outline: none;
+
+}
+#backToLogin,#goToRegister{
+    cursor: pointer;
+}
+span#backToLogin:hover,
+span#goToRegister:hover{
+    color: rgb(255, 255, 255);
+}
+/* Glitch effect keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0); }
+    25% { opacity: 0.2; transform: scale(.2); }
+    50% { opacity: 0.5; transform: scale(0.5); }
+    75% { opacity: 0.7; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes popOut {
+    0% { opacity: 1; transform: scale(1); }
+    25% { opacity: .7; transform: scale(.7); }
+    50% { opacity: 0.5; transform: scale(0.5); }
+    75% { opacity: 0.2; transform: scale(0.2); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+.alert-show {
+    animation: fadeIn 0.3s ease-in-out, glitch 0.3s ease-in-out 0.3s forwards;
+}
+
+.alert-hide {
+    animation: glitch 0.3s ease-in-out, popOut 0.3s ease-in-out 0.3s forwards;
+}
+
+.bg-glass{
+    background-color: #2b2b3d2d;
+    box-shadow: 0 0 0 .05rem #cdaeff10;
+    border-image: linear-gradient(to right, #00000000 0%, var(--main-color) 33%, var(--main-color) 66%, #00000000 100%);
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    border-image-slice: 1;
+
+}
+/* .bg-glass:after {
+    content: "";
+    background: #ffffff;
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    right: -2px;
+    top: -1px;
+}
+.bg-glass:before {
+    content: "";
+    background: #ffffff;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    top: -3px;
+    right: -2px;
+} */
+@media (min-width: 1px){
+    body{
+        font-size: 8px;
+    }
+}
+@media (min-width: 769px){
+    body{
+        font-size: 10px;
+    }
+}
+@media (min-width: 1025px){
+    body{
+        font-size: 16px;
+    }
+}
