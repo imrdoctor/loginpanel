@@ -116,18 +116,11 @@ span#goToRegister:hover{
     top: -3px;
     right: -2px;
 } */
-@media (min-width: 1px){
-    body{
-        font-size: 8px;
+@media only screen and (max-device-width: 480px) {
+    body .login_form{
+        width: 100%;
     }
-}
-@media (min-width: 769px){
-    body{
-        font-size: 10px;
-    }
-}
-@media (min-width: 1025px){
-    body{
-        font-size: 16px;
+    body div.w-50{
+        width: 100% !important;
     }
 }
