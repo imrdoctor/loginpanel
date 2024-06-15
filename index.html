@@ -70,14 +70,24 @@
     
     
         <!-- Start Noti -->
-        <div class="position-absolute w-100 bottom-0 start-0 end-0 m-auto">
-            <div class="alert alert-success d-none d-flex align-items-center justify-content-between" role="alert" id="successMsg">
+        <div class="position-absolute w-100 bottom-0 mb-4  m-auto">
+            <div class="alert alert-success d-none d-flex align-items-center justify-content-between w-25 m-auto" role="alert" id="successMsg">
                 <span id="successMsgTxt">test</span><i class="fa-solid fa-circle-check fa-beat-fade fa-xl" style="color: #63E6BE;"></i>
             </div>
-            <div class="alert alert-danger d-none d-flex align-items-center justify-content-between" role="alert" id="errorMessage">
+            <div class="alert alert-danger d-none d-flex align-items-center justify-content-between w-25 m-auto " role="alert" id="errorMessage">
                 <span id="errorMessageText">test</span><i class="fa-solid fa-circle-exclamation fa-beat-fade fa-xl text-danger"></i>
             </div>
         </div>
+        <audio id="successSound">
+            <source src="sound/noti.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <audio id="errorSound">
+            <source src="sound/error.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
         <!-- End Noti -->
     </main>
     

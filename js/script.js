@@ -1,4 +1,3 @@
-// كل سنه وانت طيب يهندسه
 // Selecting elements
 var LUemailInput = document.querySelector('#LUemail');
 var LUpasswordInput = document.querySelector('#LUpassword');
@@ -46,54 +45,62 @@ function resetInputs() {
 
 // Function to show registration error messages
 var isNotificationVisible = false;
-// نوتفكيشن على الديق كده قدام هعمل مكتبه ان شاء الله
+
 function showError(message) {
-    if (isNotificationVisible) return; // Prevent new notification if one is already visible
+    if (isNotificationVisible) return;
 
     var errorMessage = document.getElementById('errorMessage');
     var errorMessageText = document.getElementById('errorMessageText');
 
     errorMessageText.textContent = message;
     errorMessage.classList.remove('d-none', 'alert-hide');
-    errorMessage.classList.add('alert-show');
-    errorMessage.classList.add('fa-beat-fade');
+    errorMessage.classList.add('alert-show', 'fa-beat-fade');
 
     isNotificationVisible = true;
 
+    // Play error sound
+    playNotificationSound('error');
+
     setTimeout(function() {
-        errorMessage.classList.remove('alert-show');
-        errorMessage.classList.remove('fa-beat-fade');
+        errorMessage.classList.remove('alert-show', 'fa-beat-fade');
         errorMessage.classList.add('alert-hide');
         setTimeout(function() {
             errorMessage.classList.add('d-none');
-            isNotificationVisible = false; // Allow new notifications to be shown
-        }, 1000); // Ensure animation completes before hiding
-    }, 3000); // Hide error message after 3 seconds
+            isNotificationVisible = false;
+        }, 1000);
+    }, 3000);
 }
 
 // Function to show registration success messages
 function showSuccess(message) {
-    if (isNotificationVisible) return; // Prevent new notification if one is already visible
+    if (isNotificationVisible) return;
 
     var successMsg = document.getElementById('successMsg');
     var successMsgTxt = document.getElementById('successMsgTxt');
 
     successMsgTxt.textContent = message;
     successMsg.classList.remove('d-none', 'alert-hide');
-    successMsg.classList.add('alert-show');
-    successMsg.classList.add('fa-beat-fade');
+    successMsg.classList.add('alert-show', 'fa-beat-fade');
 
     isNotificationVisible = true;
 
+    // Play success sound
+    playNotificationSound('success');
+
     setTimeout(function() {
-        successMsg.classList.remove('alert-show');
-        successMsg.classList.remove('fa-beat-fade');
+        successMsg.classList.remove('alert-show', 'fa-beat-fade');
         successMsg.classList.add('alert-hide');
         setTimeout(function() {
             successMsg.classList.add('d-none');
-            isNotificationVisible = false; // Allow new notifications to be shown
-        }, 1000); // Ensure animation completes before hiding
-    }, 3000); // Hide success message after 3 seconds
+            isNotificationVisible = false;
+        }, 1000);
+    }, 3000);
+}
+
+// Function to play notification sounds
+function playNotificationSound(type) {
+    var sound = document.getElementById(type === 'success' ? 'successSound' : 'errorSound');
+    sound.play();
 }
 
 // Transfer between Panels
@@ -127,7 +134,7 @@ regesterAccountBtn.addEventListener('click', function () {
             return;
         }
         if (!regex.passRegx.test(password)) {
-            showError('password Must contain more than 8 numbers and letters');
+            showError('Password must contain at least 8 characters including letters and numbers');
             return;
         }
         for (var i = 0; i < accountsContainer.length; i++) {
@@ -152,7 +159,7 @@ regesterAccountBtn.addEventListener('click', function () {
         localStorage.setItem("accounts", JSON.stringify(accountsContainer));
         resetInputs();
         showSuccess('Account created successfully!');
-        redirectToLogin(); // Optionally redirect to login panel after registration
+        redirectToLogin();
     } else {
         showError('Please fill all fields');
     }
@@ -178,7 +185,7 @@ loginInput.addEventListener('click', function () {
             // Store logged-in user information in localStorage
             localStorage.setItem('isLoggedIn', true);
             localStorage.setItem('loggedInUsername', accountsContainer[i].Uname);
-            break; // Stop searching once a match is found
+            break;
         }
     }
 
@@ -188,11 +195,12 @@ loginInput.addEventListener('click', function () {
         setTimeout(function() {
             homesec.classList.replace("d-none", "d-block");
             loginPanels.classList.add('d-none');
-        }, 2000); // 2-second delay
+        }, 2000);
     } else {
         showError('Invalid email or password');
     }
 });
+
 // Function to check login status on page load
 document.addEventListener('DOMContentLoaded', function () {
     var isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -212,10 +220,9 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to handle logout
 logoutBtn.addEventListener('click', function (event) {
     event.preventDefault();
-    showSuccess('You Are Logout',);
+    showSuccess('You Are Logged Out');
     localStorage.removeItem('isLoggedIn'); // Remove login status flag
     localStorage.removeItem('loggedInUsername'); // Remove logged-in username
     homesec.classList.add('d-none');
     loginPanels.classList.replace('d-none', 'd-block');
-
 });
