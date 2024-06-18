@@ -218,8 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function to handle logout
-logoutBtn.addEventListener('click', function (event) {
-    event.preventDefault();
+logoutBtn.addEventListener('click', function () {
     showSuccess('You Are Logged Out');
     localStorage.removeItem('isLoggedIn'); // Remove login status flag
     localStorage.removeItem('loggedInUsername'); // Remove logged-in username
