@@ -98,7 +98,7 @@ span#goToRegister:hover{
     border-image-slice: 1;
 
 }
-.bg-glass:after {
+/* .bg-glass:after {
     content: "";
     background: #ffffff;
     position: absolute;
@@ -115,5 +115,5 @@ span#goToRegister:hover{
     height: 2px;
     top: -3px;
     right: -2px;
-}
+} */
 
